@@ -1,103 +1,130 @@
-<h1>Desafio de projeto do Felipão: Mario Kart.JS</h1>
+# 🏎️ Mario Kart Race Simulation
 
-  <table>
-        <tr>
-            <td>
-                <img src="./docs/header.gif" alt="Mario Kart" width="200">
-            </td>
-            <td>
-                <b>Objetivo:</b>
-                <p>Mario Kart é uma série de jogos de corrida desenvolvida e publicada pela Nintendo. Nosso desafio será criar uma lógica de um jogo de vídeo game para simular corridas de Mario Kart, levando em consideração as regras e mecânicas abaixo.</p>
-            </td>
-        </tr>
-    </table>
+A simple **console-based Mario Kart simulation** written in JavaScript (ES6).
+This project demonstrates **object-oriented programming**, **randomization**, and **game logic** using classes, loops, and functions.
 
-<h2>Players</h2>
-      <table style="border-collapse: collapse; width: 800px; margin: 0 auto;">
-        <tr>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Mario</p>
-                <img src="./docs/mario.gif" alt="Mario Kart" width="60" height="60">
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Velocidade: 4</p>
-                <p>Manobrabilidade: 3</p>
-                <p>Poder: 3</p>
-            </td>
-             <td style="border: 1px solid black; text-align: center;">
-                <p>Peach</p>
-                <img src="./docs/peach.gif" alt="Mario Kart" width="60" height="60">
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Velocidade: 3</p>
-                <p>Manobrabilidade: 4</p>
-                <p>Poder: 2</p>
-            </td>
-              <td style="border: 1px solid black; text-align: center;">
-                <p>Yoshi</p>
-                <img src="./docs/yoshi.gif" alt="Mario Kart" width="60" height="60">
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Velocidade: 2</p>
-                <p>Manobrabilidade: 4</p>
-                <p>Poder: 3</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Bowser</p>
-                <img src="./docs/bowser.gif" alt="Mario Kart" width="60" height="60">
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Velocidade: 5</p>
-                <p>Manobrabilidade: 2</p>
-                <p>Poder: 5</p>
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Luigi</p>
-                <img src="./docs/luigi.gif" alt="Mario Kart" width="60" height="60">
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Velocidade: 3</p>
-                <p>Manobrabilidade: 4</p>
-                <p>Poder: 4</p>
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Donkey Kong</p>
-                <img src="./docs/dk.gif" alt="Mario Kart" width="60" height="60">
-            </td>
-            <td style="border: 1px solid black; text-align: center;">
-                <p>Velocidade: 2</p>
-                <p>Manobrabilidade: 2</p>
-                <p>Poder: 5</p>
-            </td>
-        </tr>
-    </table>
+---
 
-<p></p>
+## 🚀 Overview
 
-<h3>🕹️ Regras & mecânicas:</h3>
+Two random players are selected from a pool of six iconic Mario Kart characters.
+They compete across multiple **rounds**, each with a **random mode** — Normal, Turbo, or Drift — where different attributes are tested.
 
-<b>Jogadores:</b>
+The player who performs better in most rounds wins the race! 🏆
 
-<input type="checkbox" id="jogadores-item" />
-<label for="jogadores-item">O Computador deve receber dois personagens para disputar a corrida em um objeto cada</label>
+---
 
-<b>Pistas:</b>
+## 🧱 Project Structure
 
-<ul>
-  <li><input type="checkbox" id="pistas-1-item" /> <label for="pistas-1-item">Os personagens irão correr em uma pista aleatória de 5 rodadas</label></li>
-  <li><input type="checkbox" id="pistas-2-item" /> <label for="pistas-2-item">A cada rodada, será sorteado um bloco da pista que pode ser uma reta, curva ou confronto</label>
-    <ul>
-      <li><input type="checkbox" id="pistas-2-1-item" /> <label for="pistas-2-1-item">Caso o bloco da pista seja uma RETA, o jogador deve jogar um dado de 6 lados e somar o atributo VELOCIDADE, quem vencer ganha um ponto</label></li>
-      <li><input type="checkbox" id="pistas-2-2-item" /> <label for="pistas-2-2-item">Caso o bloco da pista seja uma CURVA, o jogador deve jogar um dado de 6 lados e somar o atributo MANOBRABILIDADE, quem vencer ganha um ponto</label></li>
-      <li><input type="checkbox" id="pistas-2-3-item" /> <label for="pistas-2-3-item">Caso o bloco da pista seja um CONFRONTO, o jogador deve jogar um dado de 6 lados e somar o atributo PODER, quem perder, perde um ponto</label></li>
-      <li><input type="checkbox" id="pistas-2-3-item" /> <label for="pistas-2-3-item">Nenhum jogador pode ter pontuação negativa (valores abaixo de 0)</label></li>
-    </ul>
-  </li>
-</ul>
+```bash
+mario-kart/
+├── main.js        # main simulation file
+├── README.md      # documentation file
+```
 
-<b>Condição de vitória:</b>
+---
 
-<input type="checkbox" id="vitoria-item" />
-<label for="vitoria-item">Ao final, vence quem acumulou mais pontos</label>
+## ⚙️ How It Works
+
+1. **Player Class**
+   Represents a racer with attributes:
+
+   * `id`
+   * `name`
+   * `velocity`
+   * `maneuverability`
+   * `power`
+   * `playerPoints`
+
+2. **Race Class**
+   Controls the race logic:
+
+   * Randomly selects **2 players** from the list
+   * Simulates **N rounds**
+   * Each round has a **random mode**:
+
+     * `Normal` → tests `velocity`
+     * `Drift` → tests `maneuverability`
+     * `Turbo` → tests `power`
+   * Players roll a virtual dice (1–6)
+   * Attribute + dice result determines the round winner
+   * At the end, total points decide the final champion
+
+---
+
+## 🎮 Example Output
+
+```
+Bem-vindo ao Mario Kart!
+👥Jogadores selecionados: Bowser e Luigi👥
+⏲The race started!⏲
+-----------------------
+🏁Round 1🏁
+🚷Race Mode: Turbo 🚷
+Bowser rolled a die with a value of 4 + 5(power) = 9
+Luigi rolled a die with a value of 2 + 4(power) = 6
+🏆Bowser won this round!🏆
+-----------------------
+🏁Round 2🏁
+🚷Race Mode: Drift 🚷
+Bowser rolled a die with a value of 3 + 2(maneuverability) = 5
+Luigi rolled a die with a value of 6 + 4(maneuverability) = 10
+🏆Luigi won this round!🏆
+...
+🎉🎉Bowser is the big winner with 3 playerPoints!🎉
+```
+
+---
+
+## 🧩 Features
+
+✅ Random player selection
+✅ Dice-based attribute testing
+✅ Multiple racing modes
+✅ Round-by-round commentary
+✅ Automatic winner declaration
+
+---
+
+## 🧠 Concepts Practiced
+
+* **Classes and constructors**
+* **Encapsulation**
+* **Random number generation**
+* **Control structures (loops, conditionals)**
+* **Console output formatting**
+* **Procedural and OOP integration**
+
+---
+
+## 🕹️ How to Run
+
+1. Clone this repository or copy the code into a file named `main.js`
+2. Run it using Node.js:
+
+```bash
+node main.js
+```
+
+3. Watch the race unfold in your terminal 🏁
+
+---
+
+## 👥 Characters
+
+| Player      | Velocity | Maneuverability | Power |
+| ----------- | -------- | --------------- | ----- |
+| Mario       | 4        | 3               | 3     |
+| Luigi       | 3        | 4               | 4     |
+| Peach       | 3        | 4               | 2     |
+| Donkey Kong | 2        | 3               | 5     |
+| Bowser      | 5        | 2               | 5     |
+| Yoshi       | 2        | 4               | 3     |
+
+---
+
+## 📜 License
+
+This project is free to use and modify for learning purposes.
+Made with ❤️ by **Maciel Alves** — inspired by **Felipe Aguiar (DIO)** lessons.
+

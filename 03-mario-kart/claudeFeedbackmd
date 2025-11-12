@@ -1,0 +1,18 @@
+## Strengths
+
+Persistence in problem-solving - You didn't give up when you encountered errors. You continued debugging and asking questions until you understood what was happening (example: when the loop wasn't executing, you tested various hypotheses until you discovered the problem).
+Critical thinking about best practices - You questioned "premature reusability" and reached the correct conclusion about YAGNI on your own, showing maturity in understanding code design ("The function must be reusable. I don't know when... Therefore, I should meet the present demand").
+Diagnostic ability - You were able to identify strange behaviors and ask specifically about them ("Why were there 5 rounds and a tie when there was no tie in the fifth round?").
+Evolution during the process - You fixed randomDuoPlayers() using while instead of for, showing that you understood the problem of always guaranteeing 2 players.
+Attention to feedback - When I explained concepts, you applied them and moved forward (example: correcting the parameter passing from object constructor to separate parameters).
+
+## Weaknesses
+
+Confusion between function reference and function value - You used ${this.randomMode} without the parentheses (), displaying the function code instead of executing it. This also appeared with this.rollDice. This demonstrates a lack of clarity about when to use function vs function().
+Passing objects vs passing individual parameters - You passed an object to the constructor new Race({players: ..., rounds: ...}) but the constructor expected separate parameters constructor(players, rounds, modes). This shows confusion about destructuring and function signatures.
+Scopes and object references - The biggest problem was with this out of context (mode: this.mode when this didn't exist yet) and creating temporary objects player1/player2 thinking that modifying them would affect duoPlayers. This shows difficulty with references vs copies of objects in JavaScript.
+Incomplete loop logic - The original for loop in randomDuoPlayers() didn't guarantee 2 players because it only tried 2 times. This shows lack of attention to exit conditions and edge cases.
+Data inconsistency - You mixed strings and numbers in player properties (velocidade: "4" vs velocidade: 4, and poder: "5" in DonkeyKong). This can cause subtle bugs with mathematical operations.
+Extensive duplicate code - You repeated the same if/else result comparison block in all three modes (Normal, Drift, Turbo) before trying to abstract it into whoWon(). This shows initial lack of perception of repeated patterns that can be extracted.
+
+**Summary**: Your strengths are mindset and attitude. Your weaknesses are fundamental JavaScript concepts (references, scope, data types, function execution). With focused study on these fundamentals, you have great potential to evolve!
