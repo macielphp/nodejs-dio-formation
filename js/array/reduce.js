@@ -213,7 +213,8 @@ const students = [
 console.log('🎓 Students grouped by grade:')
 const byGrade = students.reduce((groups, student) => {
     const grade = student.grade
-
+    console.log('Grade:', grade)
+    
     // Create array for grade if not exists
     if (!groups[grade]) {
         groups[grade] = []
@@ -221,12 +222,12 @@ const byGrade = students.reduce((groups, student) => {
 
     // add student to respective grade array
     groups[grade].push(student)
-
+    console.log('Groups grade added:', groups[grade])
     return groups
 }, {})
 
 console.log(byGrade)
-Object.entries(byGrade).forEach(([grade, students]) => {
-    console.log(`\n Grade ${grade}:`)
-    students.forEach(s => console.log(`    - ${s.name} (${s.age} years old)`))
-})
+// Object.entries(byGrade).forEach(([grade, students]) => {
+//     console.log(`\n Grade ${grade}:`)
+//     students.forEach(s => console.log(`    - ${s.name} (${s.age} years old)`))
+// })

@@ -30,3 +30,7 @@ const reversedOrder = allEmployees.reduceRight((acc, emp) => {
 }, []);
 
 console.log("Reverse-processed order:", reversedOrder);
+console.log("\n-------------------------------------------------------\n");
+console.log(emailAliases)
+
+export default emailAliases;
